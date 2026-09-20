@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行业参考案例 · 今翊科技</title>
+<meta name="keywords" content="小程序开发案例,AI开发案例,小程序定制案例">
+<meta name="description" content="今翊科技交付的小程序与系统案例，以及我们擅长的行业方向与功能模块。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">今</span>
+      <span class="brand-text"><strong>今翊科技</strong><em>JINYEE TECH · AI 小程序开发</em></span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="index.html">开始开发</a>
+      <a href="pricing.html">价格</a>
+      <a href="cases.html">案例</a>
+      <a href="reference.html" class="active">行业参考</a>
+      <a href="guide.html" class="nav-guide">开发流程</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="contact.html">咨询客服</a>
+      <a class="btn btn-primary" href="index.html#studio">免费报价</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">首页</a> / 行业参考</div>
+    <h1>行业参考案例</h1>
+    <p>看看别的行业把小程序和官网做成了什么样 —— 找到你的行业，就有个大致方向。</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="container">
+    <div class="ref-note">
+      <strong>说明：</strong>本页案例均为<strong>公开可见的同类产品参考</strong>，用于了解各行业的功能形态，
+      <strong>并非本项目交付案例</strong>。点任意卡片可打开原站查看。来源：<span id="refSource">shanyufeng.cn 案例库（186 个）</span>
+    </div>
+
+    <div class="ref-tools">
+      <div class="ref-search">
+        <input type="search" id="refSearch" placeholder="搜类型：知识、餐饮、教育、酒店、宠物…" autocomplete="off" maxlength="40">
+      </div>
+    </div>
+
+    <div class="ref-grid" id="refGrid"></div>
+    <div class="ref-empty" id="refEmpty" hidden>没搜到相关案例，换个词试试</div>
+    <div class="ref-pager" id="refPager"></div>
+    <p class="industry-count" id="refCount"></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>看到合适的形态了？</h2>
+        <p>把你的业务说清楚，我们照着这个方向给你功能和报价</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-guide-light" href="cases.html">看我们的交付案例</a>
+        <a class="btn btn-primary" href="index.html#studio">免费评估需求</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark">今</span>
+        <span class="brand-text"><strong>今翊科技</strong><em>JINYEE TECH · AI 小程序开发</em></span>
+      </div>
+      <p>AI + 真人开发，做真正能上线的产品</p>
+      <p class="footer-desc">让每个想法都能被认真做出来。</p>
+      <a class="footer-guide-btn" href="guide.html">开发流程必看</a>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>服务</h4>
+        <a href="index.html#start">做一个小程序</a>
+        <a href="index.html#start">做一个网站</a>
+        <a href="index.html#start">做一个系统</a>
+        <a href="pricing.html">价格说明</a>
+      </div>
+      <div class="footer-col">
+        <h4>更多</h4>
+        <a href="cases.html">开发案例</a>
+        <a href="guide.html">开发流程</a>
+        <a href="contact.html">联系我们</a>
+        <a href="index.html#process">交付说明</a>
+      </div>
+      <div class="footer-col">
+        <h4>支持</h4>
+        <a href="contact.html">售后与维护</a>
+        <a href="contact.html">备案与上架协助</a>
+        <a href="contact.html">发票与合同</a>
+      </div>
+    </div>
+    <div class="footer-cs">
+      <h4>联系小管家</h4>
+      <div class="footer-cs-qr"><img src="assets/img/qrcode.png" alt="微信扫码添加好友"></div>
+      <p class="footer-cs-id">微信：<span id="footerWechat">13202868751</span></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 今翊科技 版权所有</span>
+    <span>本站为产品介绍页，具体报价与交付条款以双方约定为准</span>
+  </div>
+</footer>
+
+<script>window.JY = { contact: { wechat: "13202868751" } };</script>
+<script src="assets/js/ref-cases.js"></script>
+<script src="assets/js/ref-cases-view.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
