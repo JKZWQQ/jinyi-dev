@@ -32,9 +32,12 @@
       var img = x.i
         ? '<img src="' + x.i + '" alt="' + esc(x.t) + '" loading="lazy" width="640" height="400">'
         : '';
-      return '<article class="ref-card">' +
-        '<button type="button" class="ref-cover" data-img="' + esc(x.i) + '" data-t="' + esc(x.t) + '">' + img +
-          '<span class="ref-open">放大看</span></button>' +
+      var cover = x.u
+        ? '<a class="ref-cover" href="' + esc(x.u) + '" target="_blank" rel="noopener nofollow">'
+        : '<span class="ref-cover">';
+      var close = x.u ? '</a>' : '</span>';
+      return '<article class="ref-card">' + cover + img +
+          '<span class="ref-open">' + (x.u ? '打开原站 ↗' : '') + '</span>' + close +
         '<div class="ref-body">' +
           '<h3>' + esc(x.t) + '</h3>' +
           '<p>' + esc(x.d) + '</p>' +
@@ -78,7 +81,7 @@
   var lbImg = lb ? lb.querySelector('img') : null;
   function closeLb() { if (lb) { lb.hidden = true; document.body.style.overflow = ''; } }
   document.addEventListener('click', function (e) {
-    var cover = e.target.closest ? e.target.closest('.ref-cover') : null;
+    var cover = e.target.closest ? e.target.closest('button.ref-cover') : null;
     if (cover && lb && lbImg) {
       lbImg.src = cover.getAttribute('data-img') || '';
       lbImg.alt = cover.getAttribute('data-t') || '';
