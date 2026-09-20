@@ -716,3 +716,108 @@ textarea::placeholder, input::placeholder { color: #9aa4bd; }
 @media (max-width: 1024px) { .site-logo { height: 42px; } .footer-brand .site-logo { height: 44px; } }
 @media (max-width: 860px)  { .site-logo { height: 38px; } }
 @media (max-width: 480px)  { .site-logo { height: 32px; } .footer-brand .site-logo { height: 38px; } }
+
+
+/* ============================================================
+   视觉质感增强：点阵纹理 / 漂浮光晕 / 装饰动效
+   ============================================================ */
+
+/* ① 全页极淡点阵纹理（品牌蓝，透明度极低，只做质感不抢内容） */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e62e8' fill-opacity='0.045'%3E%3Cpath d='M34 32v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-28V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 32v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+header, main, footer, .modal-mask { position: relative; z-index: 1; }
+/* 光晕装饰会超出边界，只裁横向，不影响纵向滚动 */
+main { overflow-x: clip; }
+@supports not (overflow-x: clip) { main { overflow-x: hidden; } }
+
+/* ② Hero 区的漂浮光晕 */
+.hero { position: relative; overflow: visible; }
+.hero::after {
+  content: ""; position: absolute; z-index: 0; pointer-events: none;
+  width: 620px; height: 620px; border-radius: 50%;
+  top: -210px; left: -190px;
+  background: radial-gradient(circle, rgba(30,98,232,.22), rgba(46,139,240,.09) 46%, transparent 72%);
+  filter: blur(26px);
+  animation: orbDrift 18s ease-in-out infinite alternate;
+}
+.hero::before {
+  content: ""; position: absolute; z-index: 0; pointer-events: none;
+  width: 460px; height: 460px; border-radius: 50%;
+  bottom: -190px; right: -150px;
+  background: radial-gradient(circle, rgba(13,127,209,.18), transparent 70%);
+  filter: blur(30px);
+  animation: orbDrift2 22s ease-in-out infinite alternate;
+}
+.hero-grid { position: relative; z-index: 1; }
+@keyframes orbDrift {
+  from { transform: translate3d(0,0,0) scale(1); }
+  to   { transform: translate3d(-52px, 42px, 0) scale(1.14); }
+}
+@keyframes orbDrift2 {
+  from { transform: translate3d(0,0,0) scale(1.08); }
+  to   { transform: translate3d(46px,-34px,0) scale(1); }
+}
+
+/* ③ Eyebrow 小圆点呼吸脉冲 */
+.eyebrow::before { animation: pulseDot 2.6s ease-out infinite; }
+@keyframes pulseDot {
+  0%   { box-shadow: 0 0 0 0 rgba(30,98,232,.45); }
+  70%  { box-shadow: 0 0 0 11px rgba(30,98,232,0); }
+  100% { box-shadow: 0 0 0 0 rgba(30,98,232,0); }
+}
+
+/* ④ 区块标题加装饰短横（对标站 eyebrow 的做法） */
+.section-head h2 { position: relative; }
+.section-head h2::after {
+  content: ""; display: block; width: 44px; height: 3px; margin: 16px auto 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+}
+.section-head.left h2::after { margin-left: 0; }
+
+/* ⑤ CTA 深色带加纹理 + 缓慢流动 */
+.cta-band {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M34 32v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-28V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 32v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(125deg, #0b2559, #1e62e8 48%, #2e8bf0);
+  background-size: 56px 56px, auto;
+}
+
+/* ⑥ 卡片悬浮时边缘透出品牌光 */
+.card:hover, .process-item:hover, .industry-card:hover, .ref-card:hover, .case-card:hover {
+  border-color: rgba(30,98,232,.32);
+  box-shadow: 0 22px 54px rgba(16,44,110,.14);
+}
+
+/* ⑦ 报价工作台顶部彩条流动 */
+.studio::before { background-size: 200% 100%; animation: barFlow 6s linear infinite; }
+@keyframes barFlow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+
+/* ⑧ 按钮 hover 光扫 */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after {
+  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.32), transparent);
+  transform: skewX(-18deg); transition: left .55s ease;
+}
+.btn-primary:hover::after { left: 130%; }
+
+/* ⑨ 尊重系统的减少动效设置 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* 移动端收敛：光晕缩小，避免糊住内容 */
+@media (max-width: 860px) {
+  .hero::after  { width: 330px; height: 330px; top: -150px; left: -140px; }
+  .hero::before { width: 260px; height: 260px; bottom: -150px; right: -120px; }
+}
