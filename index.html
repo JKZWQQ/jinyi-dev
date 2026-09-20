@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今翊科技 · AI 赋能开发小程序 | 分阶段付款做真正能上线的产品</title>
+<meta name="keywords" content="今翊科技,AI开发小程序,小程序定制,AI赋能开发,分阶段付款,小程序外包,源码交付">
+<meta name="description" content="今翊科技——AI + 真人开发，把需求做成能上架、能收款、能长期维护的小程序与系统。分阶段付款，验收付尾款，源码交付。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">今</span>
+      <span class="brand-text">
+        <strong>今翊科技</strong>
+        <em>AI 赋能开发 · 十年技术团队</em>
+      </span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="index.html#start" class="active">开始开发</a>
+      <a href="pricing.html">价格</a>
+      <a href="cases.html">案例</a>
+      <a href="guide.html" class="nav-guide">开发流程</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="contact.html">咨询客服</a>
+      <a class="btn btn-primary" href="#studio">免费报价</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ Hero + 报价工作台 ============ -->
+<section class="hero" id="start">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">更适合你的 AI + 真人开发伙伴</div>
+      <h1 class="hero-brand">
+        <span>分阶段付款</span>
+        <span>做真正能上线的小程序</span>
+        <small>而不是生成一段跑不起来的代码</small>
+      </h1>
+      <p class="hero-desc">把需求说清楚，我们把它做成能上架、能收款、能长期维护的产品。报价透明、节点可验收，为结果买单。</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="#studio">选择开始开发</a>
+        <a class="btn btn-guide btn-lg" href="guide.html">看开发流程</a>
+      </div>
+      <ul class="hero-trust">
+        <li>源码完整交付</li>
+        <li>分阶段付款</li>
+        <li>真人技术把关</li>
+        <li>协助备案与上架</li>
+      </ul>
+    </div>
+
+    <div class="studio" id="studio">
+      <div class="studio-tabs">
+        <button type="button" class="studio-tab active" data-panel="panelMini">
+          <strong>做一个小程序</strong>
+          <span>微信小程序 · 单端多端</span>
+        </button>
+        <button type="button" class="studio-tab" data-panel="panelWebsite">
+          <strong>做一个网站</strong>
+          <span>品牌官网 · 电脑手机端</span>
+        </button>
+        <button type="button" class="studio-tab" data-panel="panelSystem">
+          <strong>做一个系统</strong>
+          <span>业务系统一体交付</span>
+        </button>
+      </div>
+
+      <!-- 小程序 -->
+      <div class="studio-panel" id="panelMini">
+        <div class="field">
+          <label>选择小程序方向</label>
+          <div class="chip-row" id="miniChips">
+            <button type="button" class="chip active" data-name="展示/房源类" data-type="mini" data-id="mini_show">展示 · 房源</button>
+            <button type="button" class="chip" data-name="商城 · 零售" data-type="mini" data-id="mini_mall">商城 · 零售</button>
+            <button type="button" class="chip" data-name="预约 · 到店服务" data-type="mini" data-id="mini_book">预约 · 到店</button>
+            <button type="button" class="chip" data-name="会员 · 积分" data-type="mini" data-id="mini_member">会员 · 积分</button>
+            <button type="button" class="chip" data-name="门店 · 多店管理" data-type="mini" data-id="mini_store">门店 · 连锁</button>
+            <button type="button" class="chip" data-name="其他需求" data-type="mini" data-id="mini_other" data-other="1">其他需求</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>需要的端 <span class="opt">（可多选）</span></label>
+          <div class="chip-row" id="miniPlatform" data-multi="1">
+            <button type="button" class="chip active" data-value="微信小程序">微信小程序</button>
+            <button type="button" class="chip" data-value="管理后台">管理后台</button>
+            <button type="button" class="chip" data-value="H5 手机网页">H5 网页</button>
+            <button type="button" class="chip" data-value="抖音小程序">抖音小程序</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>描述你的想法</label>
+          <textarea id="miniPrompt" placeholder="例如：我要做一个房源展示小程序，可以按区域和价格筛选，每套房有照片、视频、周边配套，客户能一键联系看房，我在后台自己上架房源…"></textarea>
+        </div>
+        <div class="field">
+          <label>参考图 <span class="opt">（选填，最多 3 张）</span></label>
+          <div class="img-upload" data-upload="miniImages" data-max="3">
+            <div class="img-upload-previews" id="miniImagePreviews"></div>
+            <label class="img-upload-btn">
+              <input type="file" id="miniImages" accept="image/*" multiple hidden>
+              <span>+ 添加图片</span>
+            </label>
+            <p class="img-upload-tip">可上传参考小程序截图、草图、竞品界面等</p>
+          </div>
+        </div>
+        <div class="price-note">
+          <ul class="price-note-list">
+            <li><strong>交付内容：</strong>前端 + 后端 + 管理后台 + 完整源码</li>
+            <li><strong>上线方式：</strong>可用你自己的主体备案上架，也可由我们协助代办，<em>协助备案不额外收费</em></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="btnQuoteMini">生成需求清单</button>
+        <div class="quote-box" id="quoteMini" hidden></div>
+      </div>
+
+      <!-- 网站 -->
+      <div class="studio-panel" id="panelWebsite" hidden>
+        <div class="field">
+          <label>是否需要管理后台</label>
+          <div class="chip-row" id="websiteChips">
+            <button type="button" class="chip active" data-value="0">静态展示</button>
+            <button type="button" class="chip" data-value="1">要后台可自助更新</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>描述你想要的网站</label>
+          <textarea id="websitePrompt" placeholder="例如：我要做一个品牌官网，主打高端定制服务，需要首页、产品、案例、关于我们、咨询留言，电脑和手机都要好看…"></textarea>
+        </div>
+        <div class="field">
+          <label>参考图 <span class="opt">（选填，最多 3 张）</span></label>
+          <div class="img-upload" data-upload="websiteImages" data-max="3">
+            <div class="img-upload-previews" id="websiteImagePreviews"></div>
+            <label class="img-upload-btn">
+              <input type="file" id="websiteImages" accept="image/*" multiple hidden>
+              <span>+ 添加图片</span>
+            </label>
+            <p class="img-upload-tip">可上传你喜欢的网站截图、品牌 VI、Logo 等</p>
+          </div>
+        </div>
+        <div class="price-note">
+          <ul class="price-note-list">
+            <li><strong>自己部署：</strong>自购服务器与域名，我们交付源码并协助上线</li>
+            <li><strong>用我们的：</strong>也可先挂我们的域名做展示，<em>展示期免费</em></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="btnQuoteWebsite">生成需求清单</button>
+        <div class="quote-box" id="quoteWebsite" hidden></div>
+      </div>
+
+      <!-- 系统 -->
+      <div class="studio-panel" id="panelSystem" hidden>
+        <div class="field">
+          <label>选择系统方向</label>
+          <div class="chip-row" id="systemChips">
+            <button type="button" class="chip active" data-name="进销存 / 库存" data-type="system" data-id="sys_stock">进销存</button>
+            <button type="button" class="chip" data-name="客户 CRM" data-type="system" data-id="sys_crm">客户管理</button>
+            <button type="button" class="chip" data-name="订单 / 派单" data-type="system" data-id="sys_order">订单派单</button>
+            <button type="button" class="chip" data-name="内部办公 / 审批" data-type="system" data-id="sys_oa">内部办公</button>
+            <button type="button" class="chip" data-name="数据看板" data-type="system" data-id="sys_dash">数据看板</button>
+            <button type="button" class="chip" data-name="其他需求" data-type="system" data-id="sys_other" data-other="1">其他需求</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>描述你的业务</label>
+          <textarea id="systemPrompt" placeholder="例如：做一个订单派单系统，客户下单后自动分给就近师傅，师傅在小程序接单、上传完工照片，后台能看订单和提成…"></textarea>
+        </div>
+        <div class="field">
+          <label>需求文档 <span class="opt">（选填，PDF / Word，不超过 5MB）</span></label>
+          <div class="doc-upload" id="systemDocUpload">
+            <label class="doc-upload-btn">
+              <input type="file" id="systemDoc" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.csv" hidden>
+              <span id="systemDocLabel">+ 上传文档</span>
+            </label>
+            <button type="button" class="doc-upload-clear" id="systemDocClear" hidden>移除</button>
+            <p class="img-upload-tip" style="width:100%">可上传需求说明、流程图、Excel 表单等，非必填</p>
+          </div>
+        </div>
+        <div class="price-note">
+          <ul class="price-note-list">
+            <li><strong>安装部署：</strong>系统上线需自备服务器与域名，我们负责部署调通</li>
+            <li><strong>建议：</strong>涉及下单交易的系统，服务器以年付形式自行采购更稳妥</li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-accent btn-block" id="btnQuoteSystem">生成需求清单</button>
+        <div class="quote-box" id="quoteSystem" hidden></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 流程 ============ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>开发流程清晰可见</h2>
+      <p>提交需求 → 出报价 → 付定金开发 → 验收付尾款拿源码</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-item reveal">
+        <div class="num">01</div>
+        <h3>填写需求</h3>
+        <p>选择做小程序、网站或系统，把想法写成一段话，可上传参考图与需求文档。</p>
+      </div>
+      <div class="process-item reveal">
+        <div class="num">02</div>
+        <h3>确认报价</h3>
+        <p>我们按功能清单给出报价与工期，逐项说明包含什么、不包含什么，确认无误再开工。</p>
+      </div>
+      <div class="process-item reveal">
+        <div class="num">03</div>
+        <h3>付定金开发</h3>
+        <p>支付定金进入开发，按节点交付可点开的预览，随时提修改意见，不用盲等。</p>
+      </div>
+      <div class="process-item reveal">
+        <div class="num">04</div>
+        <h3>验收交付源码</h3>
+        <p>验收通过付尾款，交付完整源码、部署文档与使用说明，协助备案与上架。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 为什么选择 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>为什么 AI 开发也需要真人把关</h2>
+      <p>AI 能十倍提速写代码，但需求拆解、数据安全与上线合规，仍然要有人负责</p>
+    </div>
+    <div class="card-grid grid-3">
+      <div class="card reveal">
+        <div class="card-icon">🧭</div>
+        <h3>需求先落地成清单</h3>
+        <p>先帮你把想法拆成功能清单和页面结构，确认清楚再动手，避免做到一半反复返工。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">⚡</div>
+        <h3>AI 提速，真人把关</h3>
+        <p>用大模型生成主体代码，工程师负责架构、数据安全、性能与稳定性的检查，交付可维护的工程。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🔐</div>
+        <h3>数据在你自己手上</h3>
+        <p>源码与数据库完整交付，服务器用你自己的主体，客户数据和经营数据都留在你这边。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">💳</div>
+        <h3>分阶段付款更放心</h3>
+        <p>定金启动、验收付尾款，每一阶段都有可交付物，风险不再全压在你这边。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🛠️</div>
+        <h3>上线后有人管</h3>
+        <p>交付后提供使用说明与维护支持，版本迭代、功能增补可以按月协作，不会找不到人。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📄</div>
+        <h3>合规与备案协助</h3>
+        <p>小程序类目资质、备案流程、隐私协议，我们按实际业务给出可执行的办理清单。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI 能力 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-head">
+        <h2>用顶级模型 + 工程团队，交付可用产品</h2>
+        <p>对接主流大模型能力，把想法做成可交付、可维护的软件</p>
+      </div>
+      <div class="brand-grid">
+        <div class="brand-card reveal">
+          <div class="brand-logo" style="background:linear-gradient(135deg,#4d6bfe,#1e40af)">DS</div>
+          <strong>DeepSeek</strong><small>代码生成</small>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-logo" style="background:linear-gradient(135deg,#615ced,#7c3aed)">通</div>
+          <strong>通义千问</strong><small>中文理解</small>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-logo" style="background:linear-gradient(135deg,#2f6fed,#00c2d1)">豆</div>
+          <strong>豆包</strong><small>多模态</small>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-logo" style="background:linear-gradient(135deg,#d97757,#a4472a)">C</div>
+          <strong>Claude</strong><small>长文工程</small>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-logo" style="background:linear-gradient(135deg,#10a37f,#0d8a6c)">GPT</div>
+          <strong>GPT</strong><small>综合推理</small>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-logo" style="background:linear-gradient(135deg,#4285f4,#9b72cb)">G</div>
+          <strong>Gemini</strong><small>多模态</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-band reveal" style="margin-top:52px">
+      <div>
+        <h2>准备好开始了吗？</h2>
+        <p>先把想法说清楚，我们把报价和工期给到你，不合适不收费</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-guide-light" href="guide.html">先看开发流程</a>
+        <a class="btn btn-primary" href="#start">立即开始开发</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark">今</span>
+        <span class="brand-text">
+          <strong>今翊科技</strong>
+          <em>AI 赋能开发 · 十年技术团队</em>
+        </span>
+      </div>
+      <p>AI + 真人开发，做真正能上线的产品</p>
+      <p class="footer-desc">让每个想法都能被认真做出来。</p>
+      <a class="footer-guide-btn" href="guide.html">开发流程必看</a>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>服务</h4>
+        <a href="index.html#start">做一个小程序</a>
+        <a href="index.html#start">做一个网站</a>
+        <a href="index.html#start">做一个系统</a>
+        <a href="pricing.html">价格说明</a>
+      </div>
+      <div class="footer-col">
+        <h4>更多</h4>
+        <a href="cases.html">开发案例</a>
+        <a href="guide.html">开发流程</a>
+        <a href="contact.html">联系我们</a>
+        <a href="index.html#process">交付说明</a>
+      </div>
+      <div class="footer-col">
+        <h4>支持</h4>
+        <a href="contact.html">售后与维护</a>
+        <a href="contact.html">备案与上架协助</a>
+        <a href="contact.html">发票与合同</a>
+      </div>
+    </div>
+
+    <div class="footer-cs">
+      <h4>联系小管家</h4>
+      <div class="footer-cs-qr" id="footerQr">二维码位<br><small>待替换</small></div>
+      <p class="footer-cs-id">微信：<span id="footerWechat">13202868751</span></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 今翊科技 版权所有</span>
+    <span>本站为产品介绍页，具体报价与交付条款以双方约定为准</span>
+  </div>
+</footer>
+
+<!-- ============ 需求提交弹窗 ============ -->
+<div class="modal-mask" id="orderModal" hidden>
+  <div class="modal">
+    <button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button>
+
+    <div id="modalStepForm" class="modal-step">
+      <h3>提交需求，获取报价</h3>
+      <div class="pay-highlight" id="submitHighlight"></div>
+      <p class="modal-tip">留个联系方式，我们把报价和工期发给你。需求描述越具体，报价越准。</p>
+      <form id="orderForm" style="margin-top:16px">
+        <div class="order-field-row">
+          <div class="order-field">
+            <label for="orderName">称呼</label>
+            <input type="text" id="orderName" placeholder="怎么称呼你" autocomplete="off">
+          </div>
+          <div class="order-field">
+            <label for="orderPhone">联系电话</label>
+            <input type="tel" id="orderPhone" placeholder="手机号" autocomplete="tel">
+          </div>
+        </div>
+        <div class="order-field">
+          <label for="orderWechat">微信号</label>
+          <input type="text" id="orderWechat" placeholder="方便报价后联系你" autocomplete="off">
+        </div>
+        <div class="order-field">
+          <label for="orderNote">其他说明 <span class="opt">（选填）</span></label>
+          <textarea id="orderNote" rows="2" placeholder="期望上线时间、预算范围、参考产品等"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">生成需求单</button>
+      </form>
+    </div>
+
+    <div id="modalStepDone" class="modal-step" hidden>
+      <div class="success-icon">✓</div>
+      <h3>需求单已生成</h3>
+      <p class="modal-tip">把下面这段内容复制发给小管家，我们会在 24 小时内回复报价。</p>
+      <textarea id="orderOutput" rows="9" readonly style="margin-top:14px;font-size:13px"></textarea>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="copyOrderBtn">一键复制</button>
+        <a class="btn btn-ghost" id="contactLink" href="contact.html">联系小管家</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.JY = {
+  contact: { wechat: "13202868751", phone: "13202868751" }
+};
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
