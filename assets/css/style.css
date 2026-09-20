@@ -708,3 +708,11 @@ textarea::placeholder, input::placeholder { color: #9aa4bd; }
 @media (max-width: 640px)  { .ref-grid { grid-template-columns: 1fr; } .ref-open { opacity: 1; } }
 
 .ref-src { opacity: .72; font-size: 12.5px; }
+
+
+/* ================= 公司 logo（区别于 AI 模型卡片的 .brand-logo） ================= */
+.site-logo { height: 46px; width: auto; max-width: none; display: block; flex-shrink: 0; }
+.footer-brand .site-logo { height: 48px; }
+@media (max-width: 1024px) { .site-logo { height: 42px; } .footer-brand .site-logo { height: 44px; } }
+@media (max-width: 860px)  { .site-logo { height: 38px; } }
+@media (max-width: 480px)  { .site-logo { height: 32px; } .footer-brand .site-logo { height: 38px; } }
