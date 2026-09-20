@@ -310,6 +310,42 @@
   var fw = $('#footerWechat');
   if (fw) fw.textContent = CONTACT.wechat;
 
+
+  /* ---------------- 行业方案库筛选 ---------------- */
+  var filterRow = $('#industryFilter');
+  if (filterRow) {
+    var indCards = $$('#industryGrid .industry-card');
+    var indCount = $('#industryCount');
+    var indTotal = indCards.length;
+    var allBtn = null;
+
+    function applyFilter(f, label) {
+      var shown = 0;
+      indCards.forEach(function (c) {
+        var ok = (f === 'all' || c.getAttribute('data-cat') === f);
+        c.hidden = !ok;
+        if (ok) { c.classList.add('in'); shown++; }   // 筛选后立刻可见，不等滚动动效
+      });
+      if (!indCount) return;
+      indCount.innerHTML = (f === 'all')
+        ? '共 <strong>' + indTotal + '</strong> 个行业方向，没找到你的行业？<a href="index.html#studio" class="ind-link">直接描述你的业务</a>，工程师帮你判断该做成什么样'
+        : '「' + label + '」<strong>' + shown + '</strong> 个行业方向 · <a href="#" class="ind-link" id="indShowAll">看全部 ' + indTotal + ' 个</a>';
+    }
+
+    filterRow.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      applyFilter(chip.getAttribute('data-filter'), chip.textContent.trim());
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.target.id !== 'indShowAll') return;
+      e.preventDefault();
+      allBtn = allBtn || $('.chip[data-filter="all"]', filterRow);
+      if (allBtn) allBtn.click();
+    });
+  }
+
   /* ---------------- 高亮当前导航 ---------------- */
   var path = location.pathname.split('/').pop() || 'index.html';
   $$('.nav a').forEach(function (a) {

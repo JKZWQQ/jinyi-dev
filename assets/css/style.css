@@ -538,6 +538,16 @@ textarea::placeholder, input::placeholder { color: #9aa4bd; }
   .header-actions .btn-ghost { display: none; }
   .contact-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 860px) {
+  .brand-text em { font-size: 10.5px; }
+  .brand { flex-shrink: 1; min-width: 0; }
+  .brand-text { min-width: 0; }
+  .brand-text strong { white-space: nowrap; }
+}
+@media (max-width: 480px) {
+  .brand-text em { display: none; }   /* 小屏只留公司名，避免导航条溢出 */
+}
+
 @media (max-width: 640px) {
   body { font-size: 15px; }
   .studio { padding: 16px; }
@@ -607,3 +617,35 @@ textarea::placeholder, input::placeholder { color: #9aa4bd; }
 /* ================= 二维码图片 ================= */
 .footer-cs-qr:has(img), .qr-box:has(img) { padding: 0; background: #fff; border-color: var(--line); }
 .footer-cs-qr img, .qr-box img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: inherit; }
+
+
+/* ================= 行业方案库 ================= */
+.filter-row { justify-content: center; margin-bottom: 30px; }
+.industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.industry-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 20px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.industry-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(30, 98, 232, .28); }
+.ind-icon {
+  width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+  font-size: 22px; margin-bottom: 13px;
+  background: linear-gradient(135deg, var(--brand-soft), var(--accent-soft));
+}
+.industry-card h3 { font-size: 15.5px; font-weight: 800; margin-bottom: 8px; }
+.industry-card p { font-size: 13.5px; color: var(--muted); line-height: 1.62; flex: 1; }
+.ind-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+.ind-tags span {
+  font-size: 11.5px; padding: 3px 9px; border-radius: 7px;
+  background: var(--brand-soft); color: var(--brand); font-weight: 600;
+}
+.industry-count { text-align: center; font-size: 13.5px; color: var(--muted); margin-top: 24px; }
+.industry-count strong { color: var(--brand); font-weight: 800; }
+
+@media (max-width: 1100px) { .industry-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .industry-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px)  { .industry-grid { grid-template-columns: 1fr; } }
+
+.ind-link { color: var(--brand); font-weight: 700; }
+.ind-link:hover { text-decoration: underline; }

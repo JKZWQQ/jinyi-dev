@@ -36,15 +36,15 @@
   <div class="container">
     <div class="breadcrumb"><a href="index.html">首页</a> / 开发案例</div>
     <h1>开发案例</h1>
-    <p>以下为已交付项目的结构与功能示意，以及我们持续承接的行业方向。具体案例演示可联系小管家获取。</p>
+    <p>下面是我们已交付上线的项目，以及按行业整理好的方案库 —— 找到相近的行业，就能看到这类小程序大概包含什么功能。</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:12px">
   <div class="container">
     <div class="section-head left reveal">
-      <h2>已交付示例</h2>
-      <p>真实上线并运营中的小程序界面，房源与客户信息已脱敏</p>
+      <h2>已交付并正在运营</h2>
+      <p>真实上线的小程序界面，房源与客户信息已脱敏</p>
     </div>
 
     <div class="case-grid" style="grid-template-columns:1fr">
@@ -54,7 +54,7 @@
         </div>
         <div class="case-body">
           <h3>房源展示小程序（用户端 + 管理后台）</h3>
-          <p>房源按楼层、户型、租金多条件筛选与排序；每套房源独立详情，包含实拍图、配置说明与看房联系方式；运营方在后台自己上架、改价、下架，无需技术人员参与。</p>
+          <p>房源按楼层、户型、租金多条件筛选与排序；每套房源独立详情，含实拍图、配置说明与看房联系方式；运营方在后台自己上架、改价、下架，不需要技术人员参与。</p>
           <div class="case-tags">
             <span>微信小程序</span><span>多条件筛选</span><span>房源详情</span>
             <span>一键联系</span><span>自管后台</span><span>已上线运营</span>
@@ -62,100 +62,189 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="section-head reveal" style="margin-top:56px">
-      <h2>行业效果示意</h2>
-      <p>按行业预先搭好的方案骨架，同类需求改品牌和内容即可上线 · 以下为<strong>效果示意</strong>，非已交付案例</p>
-    </div>
-    <div class="mock-row">
-      <div class="case-card reveal">
-        <div class="case-thumb-img"><img src="assets/img/mock-glasses.png" alt="眼镜店小程序效果示意"></div>
-        <div class="case-body">
-          <h3>眼镜 · 视光</h3>
-          <p>验光预约、青少年近视建档、镜片到期提醒、老带新自动发券。</p>
-        </div>
-      </div>
-      <div class="case-card reveal">
-        <div class="case-thumb-img"><img src="assets/img/mock-tonic.png" alt="补品汤料店小程序效果示意"></div>
-        <div class="case-body">
-          <h3>补品 · 汤料</h3>
-          <p>按需求挑货、礼盒团购、每月配送订阅、吃完了自动提醒补货。</p>
-        </div>
-      </div>
-      <div class="case-card reveal">
-        <div class="case-thumb-img"><img src="assets/img/mock-grain.png" alt="粮油店小程序效果示意"></div>
-        <div class="case-body">
-          <h3>粮油 · 社区店</h3>
-          <p>家庭套餐一次买齐、按月配送、散装按斤称重下单。</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>行业方案库</h2>
+      <p>按行业找相近的方案，看你这类生意做小程序通常要哪些功能</p>
     </div>
 
-    <div class="section-head reveal" style="margin-top:56px">
-      <h2>我们擅长的方向</h2>
-      <p>同类业务的需求我们已经做过，可以直接复用成熟结构，把预算花在真正差异化的地方</p>
+    <div class="chip-row filter-row" id="industryFilter">
+      <button type="button" class="chip active" data-filter="all">全部</button><button type="button" class="chip" data-filter="show">展示类</button><button type="button" class="chip" data-filter="trade">交易类</button><button type="button" class="chip" data-filter="book">预约服务</button><button type="button" class="chip" data-filter="member">会员门店</button><button type="button" class="chip" data-filter="content">内容教育</button><button type="button" class="chip" data-filter="internal">内部管理</button>
     </div>
 
-    <div class="case-grid">
-      <div class="case-card reveal">
-        <div class="case-thumb" style="background:linear-gradient(135deg,#1e63e8,#0e2a5c)"><span class="tag">展示类</span>房源 / 展厅</div>
-        <div class="case-body">
-          <h3>房源 · 展厅 · 企业展示</h3>
-          <p>多条件筛选、图片视频展厅、在线预约与咨询、后台自助上架。适合房产、民宿、展厅、招商项目。</p>
-          <div class="case-tags"><span>筛选</span><span>图文视频</span><span>预约</span></div>
-        </div>
+    <div class="industry-grid" id="industryGrid">
+      <div class="industry-card reveal" data-cat="show">
+        <div class="ind-icon">🏠</div>
+        <h3>房产 · 房源展示</h3>
+        <p>多条件筛选与排序、房源独立详情、看房预约、后台自助上架改价</p>
+        <div class="ind-tags"><span>筛选</span><span>详情</span><span>预约</span></div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-thumb" style="background:linear-gradient(135deg,#2e8bf0,#1e63e8)"><span class="tag">交易类</span>商城 / 零售</div>
-        <div class="case-body">
-          <h3>商城 · 零售 · 微店</h3>
-          <p>商品管理、规格库存、微信支付、订单发货、优惠券与拼团、分销推广与佣金结算。</p>
-          <div class="case-tags"><span>微信支付</span><span>订单</span><span>优惠券</span><span>分销</span></div>
-        </div>
+      <div class="industry-card reveal" data-cat="show">
+        <div class="ind-icon">🛏️</div>
+        <h3>民宿 · 酒店</h3>
+        <p>房型图集与价格日历、在线预订、订单与房态管理、入住指引</p>
+        <div class="ind-tags"><span>预订</span><span>房态</span><span>订单</span></div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-thumb" style="background:linear-gradient(135deg,#0d7fd1,#38b6ff)"><span class="tag">服务类</span>预约 / 到店</div>
-        <div class="case-body">
-          <h3>预约 · 到店 · 上门服务</h3>
-          <p>项目选择、时段排期、人员指派、到店核销、上门定位打卡、完工拍照上传与评价。</p>
-          <div class="case-tags"><span>排期</span><span>派单</span><span>核销</span><span>评价</span></div>
-        </div>
+      <div class="industry-card reveal" data-cat="show">
+        <div class="ind-icon">🏛️</div>
+        <h3>展厅 · 展馆</h3>
+        <p>展品图文与视频、语音导览路线、参观预约、活动报名</p>
+        <div class="ind-tags"><span>图文</span><span>导览</span><span>预约</span></div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-thumb" style="background:linear-gradient(135deg,#1b4fa8,#2e8bf0)"><span class="tag">会员类</span>门店 / 连锁</div>
-        <div class="case-body">
-          <h3>会员 · 积分 · 连锁门店</h3>
-          <p>会员等级与储值、积分兑换、多门店管理、店员提成统计、门店数据看板。</p>
-          <div class="case-tags"><span>会员体系</span><span>储值</span><span>积分</span><span>多门店</span></div>
-        </div>
+      <div class="industry-card reveal" data-cat="show">
+        <div class="ind-icon">🏢</div>
+        <h3>企业 · 品牌官网</h3>
+        <p>公司介绍、产品服务、案例展示、在线咨询留资</p>
+        <div class="ind-tags"><span>官网</span><span>留资</span><span>响应式</span></div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-thumb" style="background:linear-gradient(135deg,#334155,#475569)"><span class="tag">内部类</span>进销存 / 派单</div>
-        <div class="case-body">
-          <h3>进销存 · 订单派单 · 客户管理</h3>
-          <p>库存出入库、采购与供应商、订单流转、审批流、客户跟进记录与报表导出。</p>
-          <div class="case-tags"><span>库存</span><span>审批流</span><span>报表</span><span>权限</span></div>
-        </div>
+      <div class="industry-card reveal" data-cat="trade">
+        <div class="ind-icon">🍜</div>
+        <h3>餐饮 · 点餐外卖</h3>
+        <p>扫码点餐、桌台管理、外卖配送、会员储值</p>
+        <div class="ind-tags"><span>点餐</span><span>配送</span><span>储值</span></div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-thumb" style="background:linear-gradient(135deg,#0e2a5c,#1e63e8)"><span class="tag">内容类</span>知识付费 / 直播</div>
-        <div class="case-body">
-          <h3>知识付费 · 内容订阅</h3>
-          <p>课程上架、试看与购买、学习进度记录、会员订阅、优惠码与推广渠道统计。</p>
-          <div class="case-tags"><span>课程</span><span>付费订阅</span><span>推广码</span></div>
-        </div>
+      <div class="industry-card reveal" data-cat="trade">
+        <div class="ind-icon">🥬</div>
+        <h3>生鲜 · 社区团购</h3>
+        <p>按份按斤下单、每日截单、次日自提或配送、采购单汇总</p>
+        <div class="ind-tags"><span>团购</span><span>截单</span><span>自提</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="trade">
+        <div class="ind-icon">🏪</div>
+        <h3>零售 · 便利店</h3>
+        <p>商品规格与库存、微信支付、优惠券拼团、分销推广</p>
+        <div class="ind-tags"><span>支付</span><span>库存</span><span>优惠券</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="trade">
+        <div class="ind-icon">👗</div>
+        <h3>服装 · 定制</h3>
+        <p>款式面料选择、量体数据留存、定金尾款、订单进度</p>
+        <div class="ind-tags"><span>定制</span><span>定金</span><span>进度</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="trade">
+        <div class="ind-icon">🛋️</div>
+        <h3>家居 · 建材</h3>
+        <p>产品图册报价、在线询价、预约量尺、订单跟踪</p>
+        <div class="ind-tags"><span>图册</span><span>询价</span><span>预约</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">💇</div>
+        <h3>美业 · 美容美发</h3>
+        <p>项目选择、指定技师、时段预约、储值与次卡管理</p>
+        <div class="ind-tags"><span>预约</span><span>指定</span><span>次卡</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">🧘</div>
+        <h3>健身 · 瑜伽</h3>
+        <p>课程排期、教练预约、次卡年卡、到店核销</p>
+        <div class="ind-tags"><span>课表</span><span>预约</span><span>核销</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">🦷</div>
+        <h3>口腔 · 诊所</h3>
+        <p>在线挂号、分时段就诊、病历档案、复诊提醒</p>
+        <div class="ind-tags"><span>挂号</span><span>档案</span><span>提醒</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">👓</div>
+        <h3>眼镜 · 视光</h3>
+        <p>验光预约、青少年近视建档、镜片到期提醒、老带新发券</p>
+        <div class="ind-tags"><span>验光</span><span>提醒</span><span>发券</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">🚗</div>
+        <h3>汽车 · 洗车养护</h3>
+        <p>洗车套餐、上门取送车、保养提醒、次卡管理</p>
+        <div class="ind-tags"><span>套餐</span><span>取送</span><span>提醒</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">🧹</div>
+        <h3>家政 · 保洁维修</h3>
+        <p>服务下单、师傅接单、上门打卡、完工拍照验收</p>
+        <div class="ind-tags"><span>派单</span><span>打卡</span><span>验收</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="book">
+        <div class="ind-icon">🐾</div>
+        <h3>宠物 · 寄养美容</h3>
+        <p>寄养预约、健康档案、每日视频、接送服务</p>
+        <div class="ind-tags"><span>预约</span><span>档案</span><span>视频</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="member">
+        <div class="ind-icon">🏬</div>
+        <h3>连锁 · 多门店</h3>
+        <p>多门店数据管理、店员提成统计、门店经营看板</p>
+        <div class="ind-tags"><span>多店</span><span>提成</span><span>看板</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="member">
+        <div class="ind-icon">🎁</div>
+        <h3>会员 · 积分体系</h3>
+        <p>等级与储值、积分兑换、生日券、老客召回</p>
+        <div class="ind-tags"><span>等级</span><span>积分</span><span>召回</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="member">
+        <div class="ind-icon">🍷</div>
+        <h3>酒水 · 专卖</h3>
+        <p>按箱按瓶下单、防伪追溯、配送与门店自提</p>
+        <div class="ind-tags"><span>下单</span><span>追溯</span><span>配送</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="member">
+        <div class="ind-icon">💊</div>
+        <h3>药店 · 健康</h3>
+        <p>药品分类检索、处方上传、用药提醒、会员价</p>
+        <div class="ind-tags"><span>分类</span><span>处方</span><span>提醒</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="content">
+        <div class="ind-icon">🎓</div>
+        <h3>教育培训</h3>
+        <p>课程介绍、试听预约、报名缴费、学员与课时管理</p>
+        <div class="ind-tags"><span>试听</span><span>缴费</span><span>学员</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="content">
+        <div class="ind-icon">📚</div>
+        <h3>知识付费</h3>
+        <p>课程上架、试看与购买、学习进度、订阅会员</p>
+        <div class="ind-tags"><span>课程</span><span>订阅</span><span>进度</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="content">
+        <div class="ind-icon">⚖️</div>
+        <h3>律所 · 专业咨询</h3>
+        <p>业务领域展示、在线咨询、预约面谈、案件进度</p>
+        <div class="ind-tags"><span>咨询</span><span>预约</span><span>进度</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="internal">
+        <div class="ind-icon">📦</div>
+        <h3>进销存 · 库存</h3>
+        <p>采购入库、销售出库、库存预警、供应商对账</p>
+        <div class="ind-tags"><span>入库</span><span>预警</span><span>对账</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="internal">
+        <div class="ind-icon">📋</div>
+        <h3>订单 · 派单</h3>
+        <p>订单流转、自动派单、进度跟踪、提成统计</p>
+        <div class="ind-tags"><span>派单</span><span>跟踪</span><span>提成</span></div>
+      </div>
+      <div class="industry-card reveal" data-cat="internal">
+        <div class="ind-icon">🧾</div>
+        <h3>代理记账 · 财税</h3>
+        <p>客户档案、票据归集、报税进度、到期提醒</p>
+        <div class="ind-tags"><span>档案</span><span>报税</span><span>提醒</span></div>
       </div>
     </div>
 
-    <div class="cta-band reveal" style="margin-top:56px">
+    <p class="industry-count" id="industryCount">共 <strong>26</strong> 个行业方向，没找到你的行业？<a href="index.html#studio" style="color:var(--brand);font-weight:700">直接描述你的业务</a>，工程师帮你判断该做成什么样</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
       <div>
-        <h2>想看具体案例演示？</h2>
-        <p>说明你的行业和大致需求，我们把同类项目的功能清单和演示发给你</p>
+        <h2>找到相近的行业了？</h2>
+        <p>把你的具体业务说清楚，我们对照方案库给你功能和报价</p>
       </div>
       <div class="cta-band-actions">
         <a class="btn btn-guide-light" href="guide.html">看开发流程</a>
