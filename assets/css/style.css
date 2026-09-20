@@ -821,3 +821,23 @@ main { overflow-x: clip; }
   .hero::after  { width: 330px; height: 330px; top: -150px; left: -140px; }
   .hero::before { width: 260px; height: 260px; bottom: -150px; right: -120px; }
 }
+
+
+/* 参考页封面按钮化 + 站内放大灯箱 */
+button.ref-cover { width: 100%; padding: 0; border: 0; cursor: zoom-in; background: #eef2f9; font: inherit; }
+.ref-lightbox {
+  position: fixed; inset: 0; z-index: 400; background: rgba(8,14,30,.9);
+  display: grid; place-items: center; padding: 32px;
+  backdrop-filter: blur(4px);
+}
+.ref-lightbox img {
+  max-width: min(1180px, 94vw); max-height: 86vh; border-radius: 14px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.55); background: #fff;
+}
+.ref-lb-close {
+  position: absolute; top: 20px; right: 24px; width: 46px; height: 46px;
+  border-radius: 13px; border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.12); color: #fff; font-size: 26px; line-height: 1;
+  cursor: pointer; transition: background .2s;
+}
+.ref-lb-close:hover { background: rgba(255,255,255,.24); }

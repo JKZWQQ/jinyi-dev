@@ -33,8 +33,8 @@
         ? '<img src="' + x.i + '" alt="' + esc(x.t) + '" loading="lazy" width="640" height="400">'
         : '';
       return '<article class="ref-card">' +
-        '<a class="ref-cover" href="' + esc(x.u) + '" target="_blank" rel="noopener nofollow">' + img +
-          '<span class="ref-open">查看原站 ↗</span></a>' +
+        '<button type="button" class="ref-cover" data-img="' + esc(x.i) + '" data-t="' + esc(x.t) + '">' + img +
+          '<span class="ref-open">放大看</span></button>' +
         '<div class="ref-body">' +
           '<h3>' + esc(x.t) + '</h3>' +
           '<p>' + esc(x.d) + '</p>' +
@@ -72,6 +72,26 @@
     clearTimeout(timer);
     timer = setTimeout(function () { q = searchEl.value.trim().toLowerCase(); page = 1; render(); }, 180);
   });
+
+  /* 点卡片站内放大看图 */
+  var lb = document.getElementById('refLightbox');
+  var lbImg = lb ? lb.querySelector('img') : null;
+  function closeLb() { if (lb) { lb.hidden = true; document.body.style.overflow = ''; } }
+  document.addEventListener('click', function (e) {
+    var cover = e.target.closest ? e.target.closest('.ref-cover') : null;
+    if (cover && lb && lbImg) {
+      lbImg.src = cover.getAttribute('data-img') || '';
+      lbImg.alt = cover.getAttribute('data-t') || '';
+      lb.hidden = false; document.body.style.overflow = 'hidden';
+      return;
+    }
+    if (lb && !lb.hidden && (e.target === lb || e.target.classList.contains('ref-lb-close'))) closeLb();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+
+  /* 说明条里的数量跟着数据走，避免删改后对不上 */
+  var srcEl = document.getElementById('refSrc');
+  if (srcEl) srcEl.textContent = '（共 ' + DATA.length + ' 个参考）';
 
   render();
 })();
