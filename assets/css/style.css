@@ -653,10 +653,11 @@ textarea::placeholder, input::placeholder { color: #9aa4bd; }
 
 /* ================= 行业参考案例页 ================= */
 .ref-note {
-  background: var(--gold-soft); border: 1px solid rgba(196,127,22,.26); border-radius: 14px;
-  padding: 15px 19px; font-size: 13.5px; color: #6b4a10; line-height: 1.7; margin-bottom: 26px;
+  background: linear-gradient(135deg, var(--brand-soft), var(--accent-soft));
+  border: 1px solid rgba(30, 98, 232, .16); border-radius: 14px;
+  padding: 16px 20px; font-size: 13.8px; color: #3a4667; line-height: 1.75; margin-bottom: 26px;
 }
-.ref-note strong { color: #8a5c0d; }
+.ref-note strong { color: var(--brand); }
 .ref-tools { margin-bottom: 26px; scroll-margin-top: 90px; }
 .ref-search { max-width: 480px; margin: 0 auto; }
 .ref-search input {
@@ -705,3 +706,5 @@ textarea::placeholder, input::placeholder { color: #9aa4bd; }
 
 @media (max-width: 1024px) { .ref-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px)  { .ref-grid { grid-template-columns: 1fr; } .ref-open { opacity: 1; } }
+
+.ref-src { opacity: .72; font-size: 12.5px; }
