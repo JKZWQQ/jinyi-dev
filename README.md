@@ -13,7 +13,7 @@
 |---|---|
 | `index.html` | 首页：Hero + 需求清单工作台 + 流程 4 步 + 为什么需要真人把关 + AI 模型墙 + CTA |
 | `pricing.html` | 报价方式：展示类 / 小程序 / 网页系统 / 平台型 四档，讲各自包含什么，不标价 |
-| `cases.html` | 案例：1 个真实上线案例（3 张脱敏截图）+ 3 个行业效果示意 + 6 个擅长方向 |
+| `cases.html` | 案例：1 个真实上线案例（房源小程序截图）+ 3 个行业效果示意 + 6 个擅长方向 |
 | `guide.html` | 开发流程：6 步时间轴 + 交付物清单 + 8 条 FAQ |
 | `contact.html` | 联系我们：联系方式 + 合作前商务说明 |
 | `assets/css/style.css` | 设计系统（配色/间距/圆角都在文件顶部 `:root`）|
@@ -46,35 +46,25 @@
 - `contact.html` 里的电话一行
 - 页脚「联系小管家」的微信号（由 JS 注入，改上面那行即可全站生效）
 
-**还没做的一步**：二维码。现在页脚和联系页是灰色占位块。把你的微信二维码图片存成 `assets/img/qrcode.png`，然后把这两处替换掉：
+**二维码已放好**：`assets/img/qrcode.png`（540×540，从你发的微信二维码图裁出来的），页脚和联系页都已引用，不用再改。换二维码就直接覆盖这个文件。
 
-```html
-<!-- 页脚，各页面都有 -->
-<div class="footer-cs-qr">二维码位<br><small>待替换</small></div>
-<!-- 换成 -->
-<img src="assets/img/qrcode.png" alt="客服微信" style="width:118px;border-radius:13px">
-
-<!-- contact.html 里 -->
-<div class="qr-box">...</div>
-<!-- 换成 -->
-<img src="assets/img/qrcode.png" alt="客服微信" style="width:168px;border-radius:16px">
-```
+> 页面里 logo 是纯蓝 `#1E62E8` 圆角方块 + 白色「今」字，配 `JINYEE TECH · AI 小程序开发`，与宣讲 PPT 左上角一致。
 
 ---
 
 ## 配色
 
-主色已对齐公司宣讲 PPT / 开业 PPT 的 **`#1E63E8`**。改 `assets/css/style.css` 顶部这几行，全站跟着变：
+主色取自宣讲 PPT 左上角 logo 的 **`#1E62E8`**。改 `assets/css/style.css` 顶部这几行，全站跟着变：
 
 ```css
---brand: #1e63e8;      /* 主色（公司品牌蓝） */
+--brand: #1e62e8;      /* 主色（公司品牌蓝，取自宣讲 PPT logo） */
 --brand-deep: #0e2a5c; /* 深色标题 */
 --brand-soft: #eaf0fa; /* 浅色底 */
 --violet: #2e8bf0;     /* 渐变副色（浅蓝） */
 --accent: #0d7fd1;     /* 强调色（青蓝） */
 ```
 
-> 首页 AI 模型卡片里 6 个方块用的是各模型自己的品牌色（DeepSeek 蓝、Claude 橙等），故意不跟主色统一 —— 它们代表被调用的模型，不是今翊 VI。
+> 首页 6 个模型图标用的是各家官方品牌图形（SVG），刻意不跟主色统一 —— 它们代表被调用的模型，不是今翊 VI。
 
 ---
 
@@ -98,17 +88,17 @@ git push
 
 ## 素材说明（哪些能用、哪些不能用）
 
-| 文件 | 性质 | 能否对外 |
+| 文件 | 性质 | 状态 |
 |---|---|---|
-| `assets/img/case-grocery-order.png` | 真实上线截图（生鲜代买用户端首页） | ✅ 已上线使用 |
-| `assets/img/case-grocery-cart.png` | 真实上线截图（确认下单页） | ✅ 已上线使用 |
-| `assets/img/case-grocery-admin_safe.png` | 真实上线截图**脱敏版** | ✅ 已上线使用 |
+| `assets/img/case-house-list.png` | 房源展示小程序截图（真实上线） | ✅ 案例页在用 |
 | `assets/img/mock-glasses.png` / `mock-tonic.png` / `mock-grain.png` | 行业效果示意（非交付案例） | ✅ 页面已标「效果示意」 |
+| `assets/img/ai-brands/*.svg` | DeepSeek / 通义千问 / Kimi / Claude / OpenAI / Gemini 官方图形 | ✅ 首页模型墙在用 |
+| `assets/img/qrcode.png` | 你的微信二维码（540×540） | ✅ 页脚 + 联系页在用 |
 
-**两张已移出部署范围的图**（在 `桌面\今翊科技路演\_未采用素材\`）：
-
-1. `case-grocery-admin_未脱敏原始版.png` —— 原来那行配送信息含真实房号 `B栋1802` 和手机号。现已用实心色块做了不可逆遮挡并另存 `_safe` 版，页面只引用 `_safe` 版。脱敏做了像素级校验（遮挡区为单一颜色，物理上不含文字）。
-2. `case-house-list_房源经营界面.png` —— 整张图是房源经营界面（含「物业费 150 元/月」「押一付一」「地铁5号线步行4分钟」），属于你的收租业务，不适合放在对外官网，**未被网站采用**。想用得重截一张不含经营信息的纯展示版。
+**已下线的素材**：
+- 社区生鲜代买三张截图（`case-grocery-*`）—— 你说不好看，已从案例页移除，文件仍在 `assets/img/` 里没删。
+- `case-grocery-admin.png` 未脱敏原始版 —— 含真实房号 `B栋1802` 和手机号，已移出到 `桌面\今翊科技路演\_未采用素材\`，**没有进公开仓库**。
+- `case-house-list` 曾因含「物业费 150 元/月」「押一付一」被我移出，现已放回并用于案例页（这张图你在宣讲 PPT 里也在用，且不含房号、密码、租客信息）。
 
 内部文档（PPT 结合清单、素材说明）已移到 `桌面\今翊科技路演\_项目文档\`，不进公开仓库。
 
@@ -120,7 +110,7 @@ git push
 |---|---|
 | 5 个页面 × 1440px / 390px | 零横向溢出、零元素错位 |
 | 报价工作台 / tab 切换 / 端多选 / 图片预览 / FAQ 折叠 / 移动端汉堡菜单 | 全部通过 |
-| 线上站端到端（真实浏览器访问 GitHub Pages） | 5 页 HTTP 200，案例页 6 张图全部加载，交互正常 |
+| 线上站端到端（真实浏览器访问 GitHub Pages） | 5 页 HTTP 200，图片全部加载（含 6 个品牌 SVG 与二维码），交互正常 |
 | 图片资源连续 6 次请求 | 6/6 返回 200，字节数与本地文件完全一致 |
 | 全站价格数字扫描 | 0 处 |
 
