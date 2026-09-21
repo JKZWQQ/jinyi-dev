@@ -382,12 +382,12 @@
             <input type="text" id="orderName" placeholder="怎么称呼你" autocomplete="off">
           </div>
           <div class="order-field">
-            <label for="orderPhone">联系电话</label>
+            <label for="orderPhone">联系电话 <span class="opt">（手机号或微信号至少留一个）</span></label>
             <input type="tel" id="orderPhone" placeholder="手机号" autocomplete="tel">
           </div>
         </div>
         <div class="order-field">
-          <label for="orderWechat">微信号</label>
+          <label for="orderWechat">微信号 <span class="opt">（方便报价后联系你）</span></label>
           <input type="text" id="orderWechat" placeholder="方便报价后联系你" autocomplete="off">
         </div>
         <div class="order-field">
@@ -401,7 +401,7 @@
     <div id="modalStepDone" class="modal-step" hidden>
       <div class="success-icon">✓</div>
       <h3>需求单已生成</h3>
-      <p class="modal-tip" id="doneTip">复制下面这段，加我微信发过来，工程师 24 小时内给你报价。</p>
+      <p class="modal-tip" id="doneTip">需求已提交给工程师，24 小时内联系你。也可以复制下面这段加我微信确认。</p>
       <textarea id="orderOutput" rows="8" readonly style="margin-top:14px;font-size:13px"></textarea>
       <div class="modal-actions">
         <button type="button" class="btn btn-primary" id="copyOrderBtn">一键复制需求单</button>
@@ -421,9 +421,9 @@
 <script>
 window.JY = {
   contact: { wechat: "13202868751", phone: "13202868751" },
-  // 想让需求自动推送到你手机/群里：把企业微信群机器人的 Webhook 地址填到下引号里，保存即生效
-  // 形如 "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxxx"
-  webhook: ""
+  // 需求自动推送：浏览器不能直连企微（企微返回 403），必须经过一个中转地址。
+  // 拿到中转地址后填到下引号里即可（详见 README「需求推送」一节）
+  pushUrl: "",
 };
 </script>
 <script src="assets/js/main.js"></script>

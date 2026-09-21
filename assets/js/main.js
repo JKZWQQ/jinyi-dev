@@ -4,7 +4,7 @@
 
   var JY = window.JY || {};
   var CONTACT = JY.contact || { wechat: '13202868751' };
-  var WEBHOOK = (JY.webhook || '').trim();
+  var PUSH_URL = (JY.pushUrl || '').trim();   // 中转地址，留空则跳过自动推送
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -256,16 +256,34 @@
     orderForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = ($('#orderName').value || '').trim() || '（未填）';
-      var phone = ($('#orderPhone').value || '').trim() || '（未填）';
-      var wechat = ($('#orderWechat').value || '').trim() || '（未填）';
+      var phoneRaw = ($('#orderPhone').value || '').trim();
+      var wechatRaw = ($('#orderWechat').value || '').trim();
       var note = ($('#orderNote').value || '').trim() || '（无）';
+
+      // 联系方式必填：手机号或微信号至少留一个，否则工程师联系不上
+      if (!phoneRaw && !wechatRaw) {
+        alert('请留一个手机号或微信号，方便工程师联系你');
+        var pe = $('#orderPhone') || $('#orderWechat');
+        if (pe) pe.focus();
+        return;
+      }
+      if (phoneRaw && !/^1[3-9]\d{9}$/.test(phoneRaw)) {
+        alert('手机号看起来不对，请检查（11 位，1 开头）');
+        $('#orderPhone').focus();
+        return;
+      }
+      var phone = phoneRaw || '（未填）';
+      var wechat = wechatRaw || '（未填）';
       var p = pending || {};
       var pEl = p.kind === '小程序' ? $('#miniPrompt')
               : (p.kind === '网站' ? $('#websitePrompt')
               : (p.kind === '系统' ? $('#systemPrompt') : null));
       var promptText = (pEl && pEl.value.trim()) || p.prompt || '（未填写，需沟通）';
       var lines = [
-        '【今翊科技 · 开发需求】',
+        '【今翊科技 · 官网新需求】',
+        '联系方式：' + (phoneRaw ? phoneRaw : '') + (phoneRaw && wechatRaw ? ' / ' : '') + (wechatRaw ? wechatRaw : ''),
+        '称呼：' + name,
+        '——————',
         '开发类型：' + (p.kind || '未选'),
         '方向：' + (p.name || '未选'),
         p.platforms && p.platforms.length ? '需要的端：' + p.platforms.join('、') : null,
@@ -282,16 +300,20 @@
       var out = $('#orderOutput');
       if (out) out.value = lines.join('\n');
 
-      // 配了 webhook 就静默推送到手机/群，失败不影响客户看需求单
-      if (WEBHOOK) {
+      // 配了中转地址就静默推送；失败不影响客户看到需求单
+      if (PUSH_URL) {
         try {
-          fetch(WEBHOOK, {
+          fetch(PUSH_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ msgtype: 'text', text: { content: lines.join('\n') } })
+            body: JSON.stringify({
+              text: lines.join('\n'),
+              phone: phoneRaw, wechat: wechatRaw, name: name,
+              kind: (p.kind || ''), direction: (p.name || '')
+            })
           }).then(function (r) {
             var tip = $('#doneTip');
-            if (tip && r.ok) tip.textContent = '已发送给工程师，24 小时内回复你。也可以复制下面这段加微信确认。';
+            if (tip && r.ok) tip.textContent = '✓ 已推送给工程师，24 小时内联系你。';
           }).catch(function () {});
         } catch (e) {}
       }
