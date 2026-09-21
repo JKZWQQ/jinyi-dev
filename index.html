@@ -401,19 +401,29 @@
     <div id="modalStepDone" class="modal-step" hidden>
       <div class="success-icon">✓</div>
       <h3>需求单已生成</h3>
-      <p class="modal-tip">把下面这段内容复制发给小管家，我们会在 24 小时内回复报价。</p>
-      <textarea id="orderOutput" rows="9" readonly style="margin-top:14px;font-size:13px"></textarea>
+      <p class="modal-tip" id="doneTip">复制下面这段，加我微信发过来，工程师 24 小时内给你报价。</p>
+      <textarea id="orderOutput" rows="8" readonly style="margin-top:14px;font-size:13px"></textarea>
       <div class="modal-actions">
-        <button type="button" class="btn btn-primary" id="copyOrderBtn">一键复制</button>
-        <a class="btn btn-ghost" id="contactLink" href="contact.html">联系小管家</a>
+        <button type="button" class="btn btn-primary" id="copyOrderBtn">一键复制需求单</button>
+      </div>
+      <div class="qr-inline">
+        <img src="assets/img/qrcode.png" alt="微信扫码添加工程师">
+        <div class="qr-inline-txt">
+          <strong>加我微信，把需求发过来</strong>
+          <p>微信 / 电话：<span data-contact-wechat>13202868751</span><br>长按二维码识别添加</p>
+        </div>
       </div>
     </div>
+</div>
   </div>
 </div>
 
 <script>
 window.JY = {
-  contact: { wechat: "13202868751", phone: "13202868751" }
+  contact: { wechat: "13202868751", phone: "13202868751" },
+  // 想让需求自动推送到你手机/群里：把企业微信群机器人的 Webhook 地址填到下引号里，保存即生效
+  // 形如 "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxxx"
+  webhook: ""
 };
 </script>
 <script src="assets/js/main.js"></script>

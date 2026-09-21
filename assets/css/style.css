@@ -727,7 +727,7 @@ body::before {
   content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e62e8' fill-opacity='0.045'%3E%3Cpath d='M34 32v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-28V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 32v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-header, main, footer, .modal-mask { position: relative; z-index: 1; }
+header, main, footer { position: relative; z-index: 1; }
 /* 光晕装饰会超出边界，只裁横向，不影响纵向滚动 */
 main { overflow-x: clip; }
 @supports not (overflow-x: clip) { main { overflow-x: hidden; } }
@@ -841,3 +841,23 @@ button.ref-cover { width: 100%; padding: 0; border: 0; cursor: zoom-in; backgrou
   cursor: pointer; transition: background .2s;
 }
 .ref-lb-close:hover { background: rgba(255,255,255,.24); }
+
+
+/* 保险：弹窗层绝不被上面的层级规则影响 */
+.modal-mask { position: fixed !important; z-index: 300 !important; }
+.ref-lightbox { position: fixed !important; z-index: 400 !important; }
+
+
+/* 弹窗完成步：二维码引导 */
+.qr-inline {
+  display: flex; gap: 16px; align-items: center; margin-top: 20px;
+  padding: 16px 18px; border-radius: 15px;
+  background: linear-gradient(135deg, var(--brand-soft), var(--accent-soft));
+  border: 1px solid rgba(30,98,232,.16);
+}
+.qr-inline img { width: 104px; height: 104px; border-radius: 11px; flex-shrink: 0; background: #fff; }
+.qr-inline-txt strong { display: block; font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+.qr-inline-txt p { font-size: 13px; color: #46516f; line-height: 1.65; }
+@media (max-width: 480px) {
+  .qr-inline { flex-direction: column; text-align: center; gap: 12px; }
+}

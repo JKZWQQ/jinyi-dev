@@ -4,6 +4,7 @@
 
   var JY = window.JY || {};
   var CONTACT = JY.contact || { wechat: '13202868751' };
+  var WEBHOOK = (JY.webhook || '').trim();
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -280,6 +281,20 @@
       ].filter(function (x) { return x !== null; });
       var out = $('#orderOutput');
       if (out) out.value = lines.join('\n');
+
+      // 配了 webhook 就静默推送到手机/群，失败不影响客户看需求单
+      if (WEBHOOK) {
+        try {
+          fetch(WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ msgtype: 'text', text: { content: lines.join('\n') } })
+          }).then(function (r) {
+            var tip = $('#doneTip');
+            if (tip && r.ok) tip.textContent = '已发送给工程师，24 小时内回复你。也可以复制下面这段加微信确认。';
+          }).catch(function () {});
+        } catch (e) {}
+      }
       var f = $('#modalStepForm'), d = $('#modalStepDone');
       if (f) f.hidden = true;
       if (d) d.hidden = false;
