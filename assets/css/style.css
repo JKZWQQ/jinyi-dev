@@ -990,10 +990,10 @@ textarea::placeholder, input::placeholder { color: #8794b0; }
 }
 .hero-stats { position: relative; }
 .hs-item, .hs-sep { }
-/* 三列数据横排 */
-.hero-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 0 26px; align-items: center; }
-.hero-stats > .hs-head { grid-column: 1 / -1; }
-.hs-sep { width: 1px; height: 34px; }
+/* 三列数据横排（标题独占一行，分隔线各占一格） */
+.hero-stats { display: grid; grid-template-columns: auto 1px auto 1px auto; gap: 0 24px; align-items: center; }
+.hero-stats > .hs-head { grid-column: 1 / -1; margin-bottom: 12px; }
+.hs-sep { width: 1px; height: 34px; justify-self: center; }
 
 /* ⑬ 信任点：桌面一行四个（整齐），窄屏回 2×2 */
 .hero-trust { display: flex; flex-wrap: nowrap; gap: 8px; }
@@ -1006,7 +1006,7 @@ textarea::placeholder, input::placeholder { color: #8794b0; }
 }
 @media (max-width: 1024px) { .hero-stats { margin-top: 30px; } }
 @media (max-width: 480px) {
-  .hero-stats { grid-template-columns: repeat(3, auto); gap: 0 14px; padding: 16px 18px; }
+  .hero-stats { grid-template-columns: auto 1px auto 1px auto; gap: 0 12px; padding: 16px 18px; }
   .hs-item strong { font-size: 20px; }
   .hs-item span { font-size: 10.5px; }
 }
