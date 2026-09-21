@@ -1012,3 +1012,47 @@ textarea::placeholder, input::placeholder { color: #8794b0; }
   .hs-item strong { font-size: 20px; }
   .hs-item span { font-size: 10.5px; }
 }
+
+
+/* ================= 首页「案例参照」入口条 ================= */
+.ref-entry {
+  display: flex; align-items: center; gap: 20px;
+  padding: 24px 28px; border-radius: var(--radius-lg);
+  background: linear-gradient(120deg, #ffffff, #f3f8ff 55%, #eef5ff);
+  border: 1px solid rgba(30,98,232,.16);
+  box-shadow: 0 16px 44px rgba(16,44,110,.09);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  position: relative; overflow: hidden;
+}
+.ref-entry::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(180deg, var(--brand), var(--accent));
+}
+.ref-entry:hover {
+  transform: translateY(-3px); border-color: rgba(30,98,232,.34);
+  box-shadow: 0 22px 56px rgba(16,44,110,.14);
+}
+.ref-entry-icon {
+  width: 54px; height: 54px; border-radius: 16px; flex-shrink: 0;
+  display: grid; place-items: center; font-size: 25px;
+  background: linear-gradient(135deg, var(--brand-soft), var(--accent-soft));
+  border: 1px solid rgba(30,98,232,.12);
+}
+.ref-entry-txt { flex: 1; min-width: 0; }
+.ref-entry-txt strong { display: block; font-size: 18px; font-weight: 800; margin-bottom: 5px; }
+.ref-entry-txt p { font-size: 13.8px; color: var(--muted); }
+.ref-entry-go {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  padding: 11px 20px; border-radius: 12px; font-size: 14.5px; font-weight: 700;
+  background: linear-gradient(135deg, var(--brand), var(--violet)); color: #fff;
+  box-shadow: 0 8px 22px rgba(30,98,232,.26);
+}
+.ref-entry-go b { font-weight: 400; transition: transform .25s; }
+.ref-entry:hover .ref-entry-go b { transform: translateX(4px); }
+
+@media (max-width: 640px) {
+  .ref-entry { flex-wrap: wrap; gap: 14px; padding: 20px; }
+  .ref-entry-txt strong { font-size: 16.5px; }
+  .ref-entry-txt p { font-size: 13px; }
+  .ref-entry-go { width: 100%; justify-content: center; }
+}
