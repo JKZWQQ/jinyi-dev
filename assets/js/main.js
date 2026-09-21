@@ -4,7 +4,9 @@
 
   var JY = window.JY || {};
   var CONTACT = JY.contact || { wechat: '13202868751' };
-  var PUSH_URL = (JY.pushUrl || '').trim();   // 中转地址，留空则跳过自动推送
+  var PUSH_TOKEN = (function () {
+    try { return (JY.pushTokenParts || []).join(''); } catch (e) { return ''; }
+  })();
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -300,16 +302,18 @@
       var out = $('#orderOutput');
       if (out) out.value = lines.join('\n');
 
-      // 配了中转地址就静默推送；失败不影响客户看到需求单
-      if (PUSH_URL) {
+      // 自动推送到工程师微信（PushPlus）；失败不影响客户看到需求单
+      if (PUSH_TOKEN) {
+        var contactLine = (phoneRaw || '未留电话') + (wechatRaw ? ' / 微信 ' + wechatRaw : '');
         try {
-          fetch(PUSH_URL, {
+          fetch('https://www.pushplus.plus/send', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              text: lines.join('\n'),
-              phone: phoneRaw, wechat: wechatRaw, name: name,
-              kind: (p.kind || ''), direction: (p.name || '')
+              token: PUSH_TOKEN,
+              title: '【新需求】' + (p.kind || '') + ' · ' + (p.name || '') + ' · ' + contactLine,
+              content: lines.join('\n'),
+              template: 'txt'
             })
           }).then(function (r) {
             var tip = $('#doneTip');
